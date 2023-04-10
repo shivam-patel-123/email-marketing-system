@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Campaigns | EMS</title>
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/emailtemplate.css">
+</head>
+<body>
+<div class="navigation">
+    <span class="logo"><a href="/company-details"><img th:src="@{/assets/logo.svg}" alt="EMS logo" />EMS</a></span>
+    <nav>
+        <ul class="nav-links">
+            <li class="nav-link"><a href="/company-details">Company Details</a></li>
+            <li class="nav-link"><a href="/subscriber-list">Subscriber List</a></li>
+            <li class="nav-link"><a href="/email-template">Email Template</a></li>
+            <li class="nav-link"><a href="/campaigns">Campaign</a></li>
+            <li class="nav-link logout__link"><a href="/authentication/logout">Logout</a></li>
+        </ul>
+    </nav>
+</div>
+<div class="templates">
+    <div class="header">
+        <h1 class="main-title">Campaigns</h1>
+        <a href="/create-campaign" class="button">Create Campaign</a>
+    </div>
+    <div th:each="campaign: ${campaigns}" class="card card__campaign" th:attr="data-campaign-id=${campaign.campaignId}" >
+        <div>
+            <span class="card__title" th:text="${campaign.campaignName}"/>
+        </div>
+        <div>
+            <span class="card__label">Start Time:</span>
+            <span class="card__subtitle" th:text="${campaign.campaignStartTime}"/>
+        </div>
+        <div>
+            <span class="card__label">Email Template used:</span>
+            <span class="card__subtitle" th:text="${campaign.emailTemplate.templateName}"/>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script>
+    const campaignCards = document.querySelectorAll(".card__campaign");
+    campaignCards.forEach(campaignCard => {
+        campaignCard.addEventListener("click", (e) => {
+            const campaignId = e.target.closest(".card__campaign").dataset.campaignId;
+            location.href = `http://localhost:8080/campaigns/${campaignId}`;
+        })
+    })
+
+</script>
+
+</html>

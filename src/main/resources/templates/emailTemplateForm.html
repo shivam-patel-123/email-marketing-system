@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Email Template : EMS</title>
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/form.css">
+</head>
+<body>
+    <div class="navigation">
+        <span class="logo"><a href="/company-details"><img th:src="@{/assets/logo.svg}" alt="EMS logo" />EMS</a></span>
+        <nav>
+            <ul class="nav-links">
+                <li class="nav-link"><a href="/company-details">Company Details</a></li>
+                <li class="nav-link"><a href="/subscriber-list">Subscriber List</a></li>
+                <li class="nav-link"><a href="/email-template">Email Template</a></li>
+                <li class="nav-link"><a href="/campaigns">Campaign</a></li>
+                <li class="nav-link"><a href="/authentication/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+  <form class="email-template-form" method="post" action="api/email-template">
+      <h2 class="form-title">Create Email Template</h2>
+      <div class="input-group">
+          <span class="label">Template Name</span>
+          <input required class="input-field" type="text" name="name" />
+      </div>
+      <div class="input-group">
+          <span class="label">Template Subject</span>
+          <input required class="input-field" type="text" name="subject" />
+      </div>
+      <div class="input-group">
+          <span class="label">Description</span>
+          <textarea required class="input-field" rows="5" name="description" ></textarea>
+      </div>
+      <div class="input-group">
+          <span class="label">Landing Page Link</span>
+          <input class="input-field" type="text" name="landingPageLink" />
+      </div>
+      <button class="button button--form" type="submit">Create Now</button>
+  </form>
+</body>
+</html>

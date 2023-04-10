@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Campaign : EMS</title>
+  <link rel="stylesheet" href="/styles/index.css">
+  <link rel="stylesheet" href="/styles/form.css">
+</head>
+<body>
+<div class="navigation">
+  <span class="logo"><a href="/company-details"><img th:src="@{/assets/logo.svg}" alt="EMS logo" />EMS</a></span>
+  <nav>
+    <ul class="nav-links">
+      <li class="nav-link"><a href="/company-details">Company Details</a></li>
+      <li class="nav-link"><a href="/subscriber-list">Subscriber List</a></li>
+      <li class="nav-link"><a href="/email-template">Email Template</a></li>
+      <li class="nav-link"><a href="/campaigns">Campaign</a></li>
+      <li class="nav-link"><a href="/authentication/logout">Logout</a></li>
+    </ul>
+  </nav>
+</div>
+<form class="email-template-form" >
+  <h2 class="form-title">Create Campaign</h2>
+  <div class="input-group">
+    <span class="label">Campaign Name</span>
+    <input required class="input-field" type="text" name="name" />
+  </div>
+  <div class="input-group">
+    <span class="label">Campaign Start Time</span>
+    <input required class="input-field input-field--datetime" type="datetime-local" name="startTime" />
+  </div>
+
+  <div class="input-group">
+    <span class="label">Select Email Template</span>
+    <select name="templateId" id="templateId">
+      <option class="input-field" th:each="template: ${templates}" th:value="${template.getTemplateId()}" th:text="${template.getTemplateName()}"></option>
+    </select>
+  </div>
+
+  <div class="input-group">
+    <span class="label">Select User Segment</span>
+    <select name="userSegmentId" id="userSegmentId">
+      <option class="input-field" th:each="userSegment: ${userSegment}" th:value="${userSegment.userSegmentId}" th:text="${userSegment.applicationName}"></option>
+    </select>
+  </div>
+
+  <button class="button button--form" type="submit">Create Now</button>
+</form>
+
+<script>
+  const form = document.querySelector(".email-template-form")
+  document.querySelector(".button--form").addEventListener("click", (e) => {
+    e.preventDefault();
+    console.log("HELLO")
+    const inputField = document.querySelector(".input-field--datetime");
+    const date = new Date(inputField.value);
+    const timestamp = date.getTime();
+
+    const formData = new FormData(form);
+    const name = formData.get("name")
+    const templateId = formData.get("templateId");
+    const userSegmentId = formData.get("userSegmentId");
+
+    console.log(JSON.stringify({
+      name,
+      startTime: timestamp
+    }))
+
+    fetch(`/api/campaign`, {
+      method: "post",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name,
+        startTime: timestamp,
+        templateId,
+        userSegmentId,
+      })
+    }).then((res) => res.json()).then(data => location.href = "http://localhost:8080/campaigns")
+
+  })
+</script>
+</body>
+</html>

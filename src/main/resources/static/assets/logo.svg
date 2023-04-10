@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="vuesax_bold_sms-notification" data-name="vuesax/bold/sms-notification" transform="translate(-684 -252)">
+    <g id="sms-notification">
+      <path id="Vector" d="M0,0H24V24H0Z" transform="translate(684 252)" fill="none" opacity="0"/>
+      <path id="Vector-2" data-name="Vector" d="M5,2.5A2.5,2.5,0,1,1,2.5,0,2.5,2.5,0,0,1,5,2.5Z" transform="translate(701 255)" fill="#0c72e0"/>
+      <path id="Vector-3" data-name="Vector" d="M5,2.5A2.5,2.5,0,1,1,2.5,0,2.5,2.5,0,0,1,5,2.5Z" transform="translate(701 255)" fill="#0c72e0"/>
+      <path id="Vector-4" data-name="Vector" d="M18.72,5.81a4.144,4.144,0,0,1-2.27.06,3.977,3.977,0,0,1-2.8-2.76,4.122,4.122,0,0,1-.08-1.87A1.007,1.007,0,0,0,12.61,0H5C2,0,0,1.5,0,5v7c0,3.5,2,5,5,5H15c3,0,5-1.5,5-5V6.76A.987.987,0,0,0,18.72,5.81Zm-5.2,1.84-1.18.94a3.861,3.861,0,0,1-4.68,0L4.53,6.09a.769.769,0,0,1-.12-1.06.748.748,0,0,1,1.05-.12l3.13,2.5a2.386,2.386,0,0,0,2.81,0l1.18-.94a.738.738,0,0,1,1.05.12A.759.759,0,0,1,13.52,7.65Z" transform="translate(686 255.5)" fill="#0c72e0"/>
+    </g>
+  </g>
+</svg>

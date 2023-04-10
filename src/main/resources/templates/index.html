@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Start sending email in bulk - EMS</title>
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/header.css">
+</head>
+<body>
+<div class="navigation navigation__landing">
+    <span class="logo"><a href="/"><img th:src="@{/assets/logo.svg}" alt="EMS logo" />EMS</a></span>
+    <nav>
+        <ul class="nav-links">
+            <li class="nav-link"><a href="/register">Sign up</a></li>
+            <li class="nav-link"><a href="/authentication/index" >Login</a></li>
+        </ul>
+    </nav>
+</div>
+<div class="header">
+    <div class="container">
+        <div class="header__left">
+            <h1 class="header__title">Start Sending Email in bulk. Get a Free Trial.</h1>
+            <p class="header__subtitle">EMS is a SaaS Solution for all your email marketing needs.</p>
+            <a class="button button--header" href="/register">Start Free Trial</a>
+        </div>
+        <div class="header__right">
+            <img th:src="@{assets/app_image.png}" alt="Email Template Image" />
+        </div>
+    </div>
+</div>
+</body>
+</html>

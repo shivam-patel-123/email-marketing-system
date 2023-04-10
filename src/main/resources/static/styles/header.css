@@ -1,0 +1,46 @@
+.header {
+    width: 100%;
+    height: 95vh;
+    background-color: white;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 85vw;
+    margin: -60px auto 0 auto;
+    height: 100%;
+}
+
+.header .header__left {
+    margin-top: -100px;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 16px;
+}
+
+.header .header__right {
+    width: 65%;
+}
+
+.header .header__right img {
+    width: 100%;
+}
+
+.header__left .header__title {
+    line-height: 1.4;
+}
+
+.header__left .header__subtitle {
+    color: #868686;
+    line-height: 1.6;
+}
+
+.button--header {
+    margin-top: 16px;
+}

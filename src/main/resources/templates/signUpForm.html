@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/form.css">
+</head>
+<body>
+    <div class="navigation">
+        <span class="logo"><a href="/"><img th:src="@{/assets/logo.svg}" alt="EMS logo" />EMS</a></span>
+        <nav>
+            <ul class="nav-links">
+                <li class="nav-link"><a href="/register">Sign up</a></li>
+                <li class="nav-link"><a href="/authentication/index" >Login</a></li>
+            </ul>
+        </nav>
+    </div>
+  <form class="email-template-form" method="post" action="api/register/user">
+      <h2 class="form-title">Sign Up</h2>
+      <div class="input-group">
+          <span class="label">email</span>
+          <input required class="input-field" type="text" name="email" />
+      </div>
+      <div class="input-group">
+          <span class="label">password</span>
+          <input required class="input-field" type="password" name="password"/>
+      </div>
+
+      <button class="button button--form" type="submit">Continue</button>
+  </form>
+</body>
+</html>

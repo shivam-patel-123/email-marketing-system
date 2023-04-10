@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" >
+<head>
+  <meta charset="UTF-8">
+  <title>Company Analytics | EMS</title>
+  <link rel="stylesheet" href="/styles/index.css">
+  <link rel="stylesheet" href="/styles/emailtemplate.css">
+  <link rel="stylesheet" href="/styles/campaignAnalytics.css">
+</head>
+<body>
+<div class="navigation">
+  <span class="logo"><a href="/company-details"><img th:src="@{/assets/logo.svg}" alt="EMS logo" />EMS</a></span>
+  <nav>
+    <ul class="nav-links">
+      <li class="nav-link"><a href="/company-details">Company Details</a></li>
+      <li class="nav-link"><a href="/subscriber-list">Subscriber List</a></li>
+      <li class="nav-link"><a href="/email-template">Email Template</a></li>
+      <li class="nav-link"><a href="/campaigns">Campaign</a></li>
+      <li class="nav-link"><a href="/authentication/logout">Logout</a></li>
+    </ul>
+  </nav>
+</div>
+  <div class="templates">
+    <div class="header">
+      <h1 class="main-title">Campaign Analytics</h1>  
+    </div>
+    <div class="stats-container">
+      <div th:each="campaignAnalytics: ${campaignAnalytics}" class="card">
+        <div>
+          <span class="card__label">Subscribers Count</span>
+          <span class="card__title" th:text="${campaignAnalytics.getSubscribersCount()}"/>
+        </div>
+
+
+      </div>
+      <div th:each="campaignAnalytics: ${campaignAnalytics}" class="card">
+        <div>
+          <span class="card__label">Conversion Rate</span>
+          <span class="card__title" th:text="${campaignAnalytics.getConversionRate()} +' %'"/>
+        </div>
+      </div>
+
+      <div th:each="campaignAnalytics: ${campaignAnalytics}" class="card">
+        <div>
+          <span class="card__label">Click Through Rate</span>
+          <span class="card__title" th:text="${campaignAnalytics.getClickThroughRate()} + ' %'"/>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+  <div class="templates">
+
+    <span class="card__subtitle">Subscribers List</span>
+    <div class="card card__analytics">
+      <div>
+        <span class="card__label"><b>Email</b></span>
+      </div>
+      <div>
+        <span class="card__label"><b>Link open count</b></span>
+      </div>
+      <div>
+        <span class="card__label"><b>Email open count</b></span>
+      </div>
+    </div>
+
+      <div class="card card__analytics" th:each="emailDetail: ${campaignAnalytics.emailDetailsList} ">
+        <div>
+          <span class="card__label" th:text="${emailDetail.subscriber.sub_email}"/>
+        </div>
+        <div>
+          <span class="card__title" th:text="${emailDetail.numberOfTimesClicked}"/>
+        </div>
+        <div>
+          <span class="card__title" th:text="${emailDetail.numberOfTimesOpened}"/>
+        </div>
+      </div>
+  </div>
+</body>
+</html>

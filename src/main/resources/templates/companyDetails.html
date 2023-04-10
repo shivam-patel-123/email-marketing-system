@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Company Details | EMS</title>
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/emailtemplate.css">
+</head>
+<body>
+<div class="navigation">
+    <span class="logo"><a href="/company-details"><img th:src="@{/assets/logo.svg}" alt="EMS logo" />EMS</a></span>
+    <nav>
+        <ul class="nav-links">
+            <li class="nav-link"><a href="/company-details">Company Details</a></li>
+            <li class="nav-link"><a href="/subscriber-list">Subscriber List</a></li>
+            <li class="nav-link"><a href="/email-template">Email Template</a></li>
+            <li class="nav-link"><a href="/campaigns">Campaign</a></li>
+            <li class="nav-link logout__link"><a href="/authentication/logout">Logout</a></li>
+        </ul>
+    </nav>
+</div>
+<div class="templates">
+    <div class="header">
+        <h1 class="main-title">Company Details</h1>
+    </div>
+    <div th:each="companyDetails: ${companyDetails} " class="card">
+        <div>
+            <span class="card__label">Company Name:</span>
+            <span class="card__subtitle" th:text="${companyDetails.company_name}"/>
+        </div>
+        <div>
+            <span class="card__label">Website Link:</span>
+            <span class="card__subtitle" th:text="${companyDetails.website_link}"/>
+        </div>
+        <div>
+            <span class="card__label">Company Email:</span>
+            <span class="card__subtitle" th:text="${companyDetails.company_email}"/>
+        </div>
+        <div>
+            <span class="card__label">Owner Name:</span>
+            <span class="card__subtitle" th:text="${companyDetails.owner_name}"/>
+        </div>
+        <div>
+            <span class="card__label">Facebook Link:</span>
+            <span class="card__subtitle" th:text="${companyDetails.facebook_link}"/>
+        </div>
+        <div>
+            <span class="card__label">Instagram Link:</span>
+            <span class="card__subtitle" th:text="${companyDetails.instagram_link}"/>
+        </div>
+        <div>
+            <span class="card__label">Twitter Link:</span>
+            <span class="card__subtitle" th:text="${companyDetails.twitter_url}"/>
+        </div>
+    </div>
+</div>
+</body>
+</html>

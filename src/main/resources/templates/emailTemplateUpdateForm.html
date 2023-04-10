@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Email Template : EMS</title>
+  <link rel="stylesheet" href="/styles/index.css">
+  <link rel="stylesheet" href="/styles/form.css">
+</head>
+<body>
+<div class="navigation">
+  <span class="logo"><a href="/company-details"><img th:src="@{/assets/logo.svg}" alt="EMS logo" />EMS</a></span>
+  <nav>
+    <ul class="nav-links">
+      <li class="nav-link"><a href="/company-details">Company Details</a></li>
+      <li class="nav-link"><a href="/subscriber-list">Subscriber List</a></li>
+      <li class="nav-link"><a href="/email-template">Email Template</a></li>
+      <li class="nav-link"><a href="/campaigns">Campaign</a></li>
+      <li class="nav-link"><a href="/authentication/logout">Logout</a></li>
+    </ul>
+  </nav>
+</div>
+<form th:each="template: ${templateList}" class="email-template-form" th:action="@{/api/email-template/{id}(id=${template.templateId})}" th:method="put"  >
+  <h2 class="form-title">Update Email Template</h2>
+  <div class="input-group">
+    <span class="label">Template Name</span>
+    <input required class="input-field input-field--name" type="text" name="name" th:value="${template.templateName}" />
+  </div>
+  <div class="input-group">
+    <span class="label">Template Subject</span>
+    <input required class="input-field input-field--subject" type="text" name="subject" th:value="${template.templateSubject} "/>
+  </div>
+  <div class="input-group">
+    <span class="label">Description</span>
+    <textarea required class="input-field input-field--description" rows="5" name="description" th:text="${template.templateDescription}"></textarea>
+  </div>
+  <div class="input-group">
+    <span class="label">Landing Page Link</span>
+    <input class="input-field input-field--link" type="text" name="landingPageLink" th:value="${template.landingPageLink}"  />
+  </div>
+  <button class="button button--form" type="submit">Save Changes</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Subscriber : EMS</title>
+  <link rel="stylesheet" href="/styles/index.css">
+  <link rel="stylesheet" href="/styles/form.css">
+</head>
+<body>
+<div class="navigation">
+  <span class="logo"><a href="/company-details"><img th:src="@{/assets/logo.svg}" alt="EMS logo" />EMS</a></span>
+  <nav>
+    <ul class="nav-links">
+      <li class="nav-link"><a href="/company-details">Company Details</a></li>
+      <li class="nav-link"><a href="/subscriber-list">Subscriber List</a></li>
+      <li class="nav-link"><a href="/email-template">Email Template</a></li>
+      <li class="nav-link"><a href="/campaigns">Campaign</a></li>
+      <li class="nav-link"><a href="/authentication/logout">Logout</a></li>
+    </ul>
+  </nav>
+</div>
+  <form class="email-template-form grid" method="post" action="/subscriber/savesubscriber">
+  <h2 class="form-title">Add Subscriber</h2>
+  <div class="input-group">
+    <span class="label">Subscriber Email</span>
+    <input required class="input-field" type="text" name="sub_email" />
+  </div>
+  <div class="input-group">
+    <span class="label">Subscriber First Name</span>
+    <input required class="input-field" type="text" name="sub_first_name" />
+  </div>
+  <div class="input-group">
+    <span class="label">Subscriber Last Name</span>
+    <input required class="input-field" name="sub_last_name" />
+  </div>
+  <div class="input-group">
+    <span class="label">Subscriber Location</span>
+    <input class="input-field" type="text" name="sub_location" />
+  </div>
+    <div class="input-group">
+      <span class="label">User Segment</span>
+      <select name="user_segment_id" id="userSegmentId">
+        <option class="input-field"  th:each="userSegment: ${userSegment}" th:value="${userSegment.userSegmentId}" th:text="${userSegment.applicationName}"></option>
+      </select>
+    </div>
+  <button class="button button--form button--grid" type="submit">Add Now</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/form.css">
+</head>
+<body>
+<div class="navigation">
+    <span class="logo"><a href="/"><img th:src="@{/assets/logo.svg}" alt="EMS logo" />EMS</a></span>
+    <nav>
+        <ul class="nav-links">
+            <li class="nav-link"><a href="/register">Sign up</a></li>
+            <li class="nav-link"><a href="/authentication/index" >Login</a></li>
+        </ul>
+    </nav>
+</div>
+<form class="email-template-form" method="post" action="/authentication/login">
+    <h2 class="form-title">Login</h2>
+    <div class="input-group">
+        <span class="label">Email</span>
+        <input required class="input-field" type="text" name="email" />
+    </div>
+    <div class="input-group">
+        <span class="label">Password</span>
+        <input required class="input-field" type="password" name="password"/>
+    </div>
+    <div th:if="${message != null}">
+        <h4 class="error-msg" th:text="${message}"></h4>
+    </div>
+
+    <button class="button button--form" type="submit">login</button>
+</form>
+</body>
+</html>

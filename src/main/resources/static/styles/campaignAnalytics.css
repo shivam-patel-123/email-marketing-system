@@ -1,0 +1,16 @@
+.card__analytics {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+}
+
+.stats-container {
+display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+}
+
+.stats-container .card__title {
+    display: block;
+    margin-top: 8px;
+    color: #0c72e0;
+}

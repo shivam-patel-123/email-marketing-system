@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Company Details : EMS</title>
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/form.css">
+</head>
+<body>
+<div class="navigation">
+    <span class="logo"><a href="/company-details"><img th:src="@{/assets/logo.svg}" alt="EMS logo" />EMS</a></span>
+    <nav>
+        <ul class="nav-links">
+            <li class="nav-link"><a href="/company-details">Company Details</a></li>
+            <li class="nav-link"><a href="/subscriber-list">Subscriber List</a></li>
+            <li class="nav-link"><a href="/email-template">Email Template</a></li>
+            <li class="nav-link"><a href="/campaigns">Campaign</a></li>
+            <li class="nav-link"><a href="/authentication/logout">Logout</a></li>
+        </ul>
+    </nav>
+</div>
+<form class="email-template-form grid" method="post" action="api/company-details/save">
+    <h2 class="form-title">Enter Company Details</h2>
+    <div class="input-group">
+        <span class="label">Company Name</span>
+        <input required class="input-field" type="text" name="company_name" />
+    </div>
+    <div class="input-group">
+        <span class="label">Website Link</span>
+        <input required class="input-field" type="text" pattern="https://.*" placeholder="https://www.yourdomain.com/" name="website_link" />
+    </div>
+    <div class="input-group">
+        <span class="label">Company Email</span>
+        <input required class="input-field" type="email" name="company_email" />
+    </div>
+    <div class="input-group">
+        <span class="label">Owner Name</span>
+        <input class="input-field" type="text" name="owner_name" />
+    </div>
+    <div class="input-group">
+        <span class="label">Facebook Link</span>
+        <input required class="input-field" type="url" pattern="https://.*" placeholder="https://www.facebook.com/" name="facebook_link" />
+    </div>
+    <div class="input-group">
+        <span class="label">Instagram Link</span>
+        <input required class="input-field" pattern="https://.*" placeholder="https://www.instagram.com/" name="instagram_link" />
+    </div>
+    <div class="input-group">
+        <span class="label">Twitter Link</span>
+        <input required class="input-field" pattern="https://.*" placeholder="https://www.twitter.com/" name="twitter_url" />
+    </div>
+    <button class="button button--form button--grid" type="submit">Add Now</button>
+</form>
+</body>
+</html>
