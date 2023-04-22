@@ -51,7 +51,7 @@ mysql --version
 }
 ```
 
-`NOTE:` As you can see above, we have three objects for development, test and production environment. `env` is used to send the active environment.
+`NOTE:` As you can see above, we have three objects for development, test and production environment. `env` is used to set the active environment.
 
 -   Run the application with below command:
 
