@@ -4,6 +4,18 @@ This application enables business owners to schedule and send marketing emails i
 
 ## How to Use
 
+-   Install Java JDK. If you are unsure, check by running below command:
+
+```
+java -version
+```
+
+-   Install MySQL and start the server. You can run below command to check if MySQL is installed in your machine:
+
+```
+mysql --version
+```
+
 -   Install dependenies
 
 ```
@@ -40,3 +52,9 @@ This application enables business owners to schedule and send marketing emails i
 ```
 
 `NOTE:` As you can see above, we have three objects for development, test and production environment. `env` is used to send the active environment.
+
+-   Run the application with below command:
+
+```
+./gradlew bootRun
+```
